@@ -82,4 +82,5 @@ dependencies {
     kapt(libs.moshi.codegen)
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+    implementation(libs.navigation.compose)
 }
