@@ -1,6 +1,7 @@
 package com.example.news.core.network.di
 
 import com.example.news.BuildConfig
+import com.example.news.core.network.api.NewsApi
 import com.example.news.core.network.interceptor.HeaderInterceptor
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -16,6 +17,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
+
     @Provides
     fun provideMoshi(): Moshi = Moshi.Builder().build()
 
@@ -54,4 +56,9 @@ class NetworkModule {
             .baseUrl(BuildConfig.BASE_URL)
             .build()
     }
+
+    @Provides
+    fun provideNewsApi(
+        retrofit: Retrofit
+    ): NewsApi = retrofit.create(NewsApi::class.java)
 }
