@@ -16,6 +16,9 @@ com-google-android-secrets = "2.0.1"
 navigation = "2.6.0"
 coil = "2.3.0"
 androidx-hilt = "1.0.0"
+kotlinxCoroutines = "1.6.4"
+androidxCoreTesting = "2.2.0"
+mockk = "1.13.5"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -43,6 +46,9 @@ hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-comp
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidx-hilt" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCoreTesting" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }

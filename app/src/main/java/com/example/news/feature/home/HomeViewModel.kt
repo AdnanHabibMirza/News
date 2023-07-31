@@ -24,8 +24,8 @@ class HomeViewModel @Inject constructor(
         fetchTopHeadlines()
     }
 
-    private fun fetchTopHeadlines(){
-        viewModelScope.launch{
+    fun fetchTopHeadlines() {
+        viewModelScope.launch {
             newsRepository.getTopHeadlines(NEWS_SOURCE).collectLatest {
                 _uiState.tryEmit(
                     when (it) {
@@ -39,7 +39,7 @@ class HomeViewModel @Inject constructor(
     }
 
 
-    companion object{
+    companion object {
         const val NEWS_SOURCE = "bbc-news"
     }
 }
