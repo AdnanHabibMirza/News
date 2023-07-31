@@ -1,15 +1,27 @@
 package com.example.news.core.data.repository
 
+import com.example.news.core.common.dispatcher.Dispatcher
+import com.example.news.core.common.dispatcher.NewsDispatchers
+import com.example.news.core.common.result.Result
+import com.example.news.core.common.result.asResult
 import com.example.news.core.data.ext.asArticle
 import com.example.news.core.model.Article
 import com.example.news.core.network.api.NewsApi
+import com.example.news.core.network.model.ArticleNetwork
 import javax.inject.Inject
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.flowOn
 
 class DefaultNewsRepository @Inject constructor(
-    private val newsApi: NewsApi
-):NewsRepository {
+    @Dispatcher(NewsDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
+    private val newsApi: NewsApi,
+) : NewsRepository {
 
-    override suspend fun getTopHeadlines(sources: String): List<Article> {
-        return newsApi.getTopHeadlines(sources).articles.map { it.asArticle() }
+    override suspend fun getTopHeadlines(sources: String): Flow<Result<List<Article>>> {
+        return flowOf(newsApi.getTopHeadlines(sources).articles.map(ArticleNetwork::asArticle))
+            .asResult()
+            .flowOn(ioDispatcher)
     }
 }

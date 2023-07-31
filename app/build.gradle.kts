@@ -10,7 +10,6 @@ plugins {
 android {
     namespace = "com.example.news"
     compileSdk = 33
-
     defaultConfig {
         applicationId = "com.example.news"
         minSdk = 21
@@ -23,7 +22,6 @@ android {
             useSupportLibrary = true
         }
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -58,7 +56,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -80,7 +77,10 @@ dependencies {
     implementation(libs.moshi)
     //noinspection KaptUsageInsteadOfKsp
     kapt(libs.moshi.codegen)
-    implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
     implementation(libs.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.lifecycle.runtime.compose)
 }

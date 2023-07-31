@@ -1,20 +1,17 @@
 package com.example.news.core.ui.navigation
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.example.news.core.ui.app.NewsAppState
+import com.example.news.feature.home.homeNavigationRoute
+import com.example.news.feature.home.homeScreen
 
 @Composable
 fun NewsNavHost(
     appState: NewsAppState,
     modifier: Modifier = Modifier,
-    startDestination: String = "home",
+    startDestination: String = homeNavigationRoute,
 ) {
     val navController = appState.navController
     NavHost(
@@ -22,16 +19,8 @@ fun NewsNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        composable("home"){
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                Text(
-                    text = "Hello!",
-                    modifier = modifier
-                )
-            }
+        homeScreen { _ ->
+
         }
     }
 }
