@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import com.example.news.core.ui.app.NewsAppState
+import com.example.news.feature.article.articleScreen
+import com.example.news.feature.article.navigateToArticle
 import com.example.news.feature.home.homeNavigationRoute
 import com.example.news.feature.home.homeScreen
 
@@ -19,8 +21,11 @@ fun NewsNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        homeScreen { _ ->
-
+        homeScreen { article ->
+            navController.navigateToArticle(article)
+        }
+        articleScreen(appState.windowSizeClass){
+            navController.popBackStack()
         }
     }
 }

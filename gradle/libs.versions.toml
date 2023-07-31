@@ -49,6 +49,7 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
 androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCoreTesting" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+material3-windowSizeClass = { group = "androidx.compose.material3", name = "material3-window-size-class" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
