@@ -31,6 +31,18 @@ android {
             )
         }
     }
+    flavorDimensions += "sources"
+    productFlavors{
+        create("bbc") {
+            dimension = "sources"
+            buildConfigField("String", "NEWS_SOURCE", "\"bbc-news\"")
+        }
+
+        create("abc") {
+            dimension = "sources"
+            buildConfigField("String", "NEWS_SOURCE", "\"abc-news\"")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17

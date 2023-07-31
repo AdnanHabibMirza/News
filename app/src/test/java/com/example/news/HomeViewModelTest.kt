@@ -34,7 +34,7 @@ class HomeViewModelTest : MainDispatcherTest() {
     @Test
     fun `test fetchTopHeadlines success`() = runTest {
         val testData = TestConstants.newsNetwork.articles.map(ArticleNetwork::asArticle)
-        coEvery { newsRepository.getTopHeadlines(HomeViewModel.NEWS_SOURCE) } returns flowOf(
+        coEvery { newsRepository.getTopHeadlines(BuildConfig.NEWS_SOURCE) } returns flowOf(
             Result.Success(
                 testData
             )
@@ -48,7 +48,7 @@ class HomeViewModelTest : MainDispatcherTest() {
 
     @Test
     fun `test fetchTopHeadlines error`() = runTest {
-        coEvery { newsRepository.getTopHeadlines(HomeViewModel.NEWS_SOURCE) } returns flowOf(
+        coEvery { newsRepository.getTopHeadlines(BuildConfig.NEWS_SOURCE) } returns flowOf(
             Result.Error(
                 Exception("Error fetching headlines")
             )
@@ -62,7 +62,7 @@ class HomeViewModelTest : MainDispatcherTest() {
 
     @Test
     fun `test fetchTopHeadlines loading`() = runTest {
-        coEvery { newsRepository.getTopHeadlines(HomeViewModel.NEWS_SOURCE) } returns flowOf(
+        coEvery { newsRepository.getTopHeadlines(BuildConfig.NEWS_SOURCE) } returns flowOf(
             Result.Loading
         )
 

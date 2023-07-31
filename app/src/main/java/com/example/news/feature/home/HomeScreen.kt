@@ -30,9 +30,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.rememberAsyncImagePainter
+import com.example.news.BuildConfig
 import com.example.news.R
 import com.example.news.core.model.Article
-import com.example.news.feature.home.HomeViewModel.Companion.NEWS_SOURCE
 
 @Composable
 internal fun HomeRoute(
@@ -57,7 +57,7 @@ internal fun HomeScreen(
     Column(modifier = modifier) {
         CenterAlignedTopAppBar(
             title = {
-                Text(text = NEWS_SOURCE)
+                Text(text = BuildConfig.NEWS_SOURCE)
             }
         )
         when (uiState) {

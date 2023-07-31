@@ -2,6 +2,7 @@ package com.example.news.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.news.BuildConfig
 import com.example.news.core.common.result.Result
 import com.example.news.core.data.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,7 +27,7 @@ class HomeViewModel @Inject constructor(
 
     fun fetchTopHeadlines() {
         viewModelScope.launch {
-            newsRepository.getTopHeadlines(NEWS_SOURCE).collectLatest {
+            newsRepository.getTopHeadlines(BuildConfig.NEWS_SOURCE).collectLatest {
                 _uiState.tryEmit(
                     when (it) {
                         is Result.Error -> HomeUiState.Error
@@ -36,10 +37,5 @@ class HomeViewModel @Inject constructor(
                 )
             }
         }
-    }
-
-
-    companion object {
-        const val NEWS_SOURCE = "bbc-news"
     }
 }
