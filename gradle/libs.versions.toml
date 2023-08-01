@@ -19,6 +19,9 @@ androidx-hilt = "1.0.0"
 kotlinxCoroutines = "1.6.4"
 androidxCoreTesting = "2.2.0"
 mockk = "1.13.5"
+biometric = "1.2.0-alpha05"
+splashscreen = "1.0.1"
+appcompat = "1.6.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -50,6 +53,9 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCoreTesting" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 material3-windowSizeClass = { group = "androidx.compose.material3", name = "material3-window-size-class" }
+biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version = "appcompat" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }

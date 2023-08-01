@@ -99,4 +99,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.androidx.core.testing)
     implementation(libs.material3.windowSizeClass)
+    implementation(libs.biometric)
+    implementation(libs.splashscreen)
+    implementation(libs.appcompat)
 }
